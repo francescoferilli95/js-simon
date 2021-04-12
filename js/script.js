@@ -14,10 +14,10 @@ $(document).ready(function () {
     var randomNumbers = [];
     var size = 5;
     var output;
-    var outputTime = 30 * 1000;
+    var waitingTime = 2 * 1000; // test 
     var maxNumbers = 5;
-    //var timer = setTimeout(function(){}, outputTime);
-    //var userNumber = parseInt( prompt('Please insert a Number ' + ' of ' + maxNumbers) );
+    var timer;
+    var userNumber;
 
     // GENERATE 5 RANDOM NUMBERS
     while(randomNumbers.length < size) {
@@ -30,7 +30,15 @@ $(document).ready(function () {
     }
     // console.log(randomNumbers);
     output = alert('Simon Says: ' + randomNumbers);
-
+    
+    // ASK TO INSERT 5 NUMBERS TO THE USER AFTER THE WAIT TIME REQUESTED BY THE TASK
+    timer = setTimeout(function(){
+        for(var i = 1; i <= maxNumbers; i++) {
+            userNumber = parseInt(prompt('Please insert a Number ' + i + ' of ' + maxNumbers));
+            console.log(userNumber);
+        }
+        clearTimeout(timer);
+    }, waitingTime);
 
 
     // FUNCTIONS
